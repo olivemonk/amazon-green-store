@@ -1,6 +1,12 @@
 "use client";
 
-import { ChevronDown, PackageOpen, ShieldCheck, Star, TruckIcon } from "lucide-react";
+import {
+  ChevronDown,
+  PackageOpen,
+  ShieldCheck,
+  Star,
+  TruckIcon,
+} from "lucide-react";
 
 import Currency from "@/components/ui/currency";
 import Button from "@/components/ui/button";
@@ -24,11 +30,9 @@ interface InfoProps {
 
 const Info: React.FC<InfoProps> = ({ data }) => {
   const cart = useCart();
-  const [discountedPrice, setDiscountedPrice] = useState<number | undefined>(
-    undefined
-  );
+  const [discountedPrice, setDiscountedPrice] = useState<number>(0);
   const [Discount, setDiscount] = useState<number>(0);
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState<number>(0);
 
   const onAddToCart = () => {
     cart.addItem(data);
@@ -231,7 +235,7 @@ const Info: React.FC<InfoProps> = ({ data }) => {
       </div>
       <hr className="my-4" />
       <p className="flex gap-x-2 text-lg items-center">
-        Get upto {parseInt(rating * discountedPrice)}
+        Get upto {(rating * discountedPrice)}
         <span>
           <Image src="/coin.svg" alt="coin" width={20} height={20} />
         </span>{" "}
