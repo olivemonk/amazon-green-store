@@ -235,7 +235,7 @@ const Info: React.FC<InfoProps> = ({ data }) => {
       </div>
       <hr className="my-4" />
       <p className="flex gap-x-2 text-lg items-center">
-        Get upto {(rating * discountedPrice)}
+        Get upto {Number(rating * discountedPrice).toFixed(0)}
         <span>
           <Image src="/coin.svg" alt="coin" width={20} height={20} />
         </span>{" "}
