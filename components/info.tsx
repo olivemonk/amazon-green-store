@@ -267,7 +267,7 @@ const Info: React.FC<InfoProps> = ({ data }) => {
           </p>
         </div>
       </div>
-      <hr className="my-4" />
+      <hr className="my-6" />
       <div className="mt-2 flex items-center gap-x-3">
         <Button
           onClick={onAddToCart}
