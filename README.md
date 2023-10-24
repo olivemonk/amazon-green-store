@@ -52,6 +52,7 @@ Welcome to AmazonGreen, the ultimate destination for eco-conscious consumers see
 ## Contributing:
 
 We welcome contributions from the community! Please submit a pull request if you have ideas for features, bug fixes, or improvements. For major changes, please open an issue first to discuss your proposal.
+[PPT link](https://docs.google.com/presentation/d/1yxq4BpbTNgJxloAdM1iZ3_kf8rCaA8TGbWU7FU6G0N8/edit?usp=sharing)
 
 ## Feedback and Support:
 
