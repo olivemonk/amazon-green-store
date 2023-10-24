@@ -8,15 +8,16 @@ Welcome to AmazonGreen, the ultimate destination for eco-conscious consumers see
    - Access a wide array of eco-friendly products, carefully curated to align with your sustainable lifestyle choices.
 
 ### 2. **Transparent Product Information:**
-   - Detailed product pages provide essential information, including eco-friendly certifications, return ratios, carbon footprint, and seller sustainability scores.
+   - Detailed product pages provide essential information, including eco-friendly certifications, return ratios, carbon footprint, and seller sustainability scores, empowering you to make informed choices.
 
 ### 3. **Innovative Incentive System:**
-   - **Green Coins:** Earn Green Coins by choosing eco-friendly delivery, green packaging, and products with low return ratios. These coins are redeemable for vouchers and discounts, rewarding your commitment to a greener planet.
+   - **Green Coins:** Earn Green Coins by choosing eco-friendly delivery, green packaging, and products with low return ratios. These coins are redeemable for vouchers and discounts, acknowledging your commitment to a greener planet.
 
 ### 4. **Green Delivery Options:**
    - **Community Delivery:** Opt for scheduled community deliveries, minimizing individual trips and reducing carbon emissions.
    - **Clubbed Delivery:** Combine multiple orders into a single delivery, promoting efficient transportation and earning you Green Coins.
-   - **Delayed Delivery:** Opt for longer delivery times, reducing rush deliveries and promoting sustainable logistics.
+   - **EcoFlex Delivery:** Choose longer delivery times, reducing rush deliveries and promoting sustainable logistics.
+
 ### 5. **Eco-Friendly Packaging:**
    - Choose minimal, eco-friendly packaging options, reducing waste and earning Green Coins and vouchers.
 
@@ -25,14 +26,15 @@ Welcome to AmazonGreen, the ultimate destination for eco-conscious consumers see
 
 ## Tech Stack:
 
-- **Frontend:** Built using Next.js 13 App Router, React, and Tailwind CSS for a responsive and intuitive user interface.
-- **Backend:** Leveraging Prisma and MongoDB for flexible and scalable data management.
+- **Frontend:** Crafted using the powerful Next.js 13 App Router, React, and Tailwind CSS for a responsive and intuitive user interface.
+- **Backend:** Powered by Prisma and MySQL for flexible and scalable data management.
+- **Database Scaling:** Utilizes PlanetScale for seamless database scaling and reliability.
 
 ## Getting Started:
 
 1. **Clone the Repository:**
    ```
-   git clone <repository-url>
+   git clone https://github.com/olivemonk/amazon-green-store.git
    cd AmazonGreen
    ```
 
