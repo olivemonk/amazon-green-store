@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 import Button from "@/components/ui/button";
 import useCart from "@/hooks/use-cart";
+import { UserButton } from "@clerk/nextjs";
 
 const NavbarActions = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -32,6 +33,7 @@ const NavbarActions = () => {
           {cart.items.length}
         </span>
       </Button>
+      <UserButton afterSignOutUrl="/" />
     </div>
   );
 }
