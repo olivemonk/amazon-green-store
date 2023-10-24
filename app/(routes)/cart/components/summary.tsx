@@ -34,7 +34,7 @@ const Summary = () => {
   const items = useCart((state) => state.items);
   const removeAll = useCart((state) => state.removeAll);
   const [selectedPackaging, setSelectedPackaging] = useState<string | null>(null);
-  const [selectedDelivery, setSelectedDelivery] = useState<string | null>(null);
+  const [selectedDelivery, setSelectedDelivery] = useState<string | null>(null) ;
   const [randomGreenPoints, setRandomGreenPoints] = useState(0);
   const [randomCarbonFootprintReduction, setRandomCarbonFootprintReduction] =
     useState(0);

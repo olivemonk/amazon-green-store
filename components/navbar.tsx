@@ -5,6 +5,7 @@ import Container from "@/components/ui/container";
 import NavbarActions from "@/components/navbar-actions";
 import getCategories from "@/actions/get-categories";
 import Image from "next/image";
+import { ChevronDown } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -40,15 +41,19 @@ const Navbar = async () => {
             </div>
           </div>
           <div className="absolute top-[23px] left-[632px] w-[89.36px] h-[19px] text-base text-gainsboro">
-        <div className="absolute top-[0px] left-[0px] font-medium  hover:text-green-600 cursor-pointer transition-colors">
+          <DropdownMenu>
+      <DropdownMenuTrigger>
+        <div className="absolute top-[0px] left-[0px] font-medium hover:text-green-600 cursor-pointer transition-colors flex items-center">
           Categories
+          <ChevronDown className="ml-1" size={20} color="green" />
         </div>
-        <Image
-          className="absolute h-[28.95%] w-[11.04%] top-[48.68%] right-[-0.84%] bottom-[27.37%] left-[89.8%] max-w-full overflow-hidden max-h-full"
-          alt=""
-          src="/vector.svg"
-          width={100} height={50}
-        />
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="ml-16">
+        <DropdownMenuItem className="text-md font-semibold">
+          <MainNav data={categories} />
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
       </div>
       {/* <div className="absolute h-[2.75%] w-[1.79%] top-[2.04%] right-[7.67%] bottom-[95.21%] left-[90.54%] text-[7px] text-white">
         <Image
@@ -70,7 +75,7 @@ const Navbar = async () => {
         src="/vector2.svg"
         width={100} height={50}
       />
-          <MainNav data={categories} />
+          {/* <MainNav data={categories} /> */}
           <NavbarActions />
         </div>
       </Container>
