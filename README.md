@@ -16,19 +16,17 @@ Welcome to AmazonGreen, the ultimate destination for eco-conscious consumers see
 ### 4. **Green Delivery Options:**
    - **Community Delivery:** Opt for scheduled community deliveries, minimizing individual trips and reducing carbon emissions.
    - **Clubbed Delivery:** Combine multiple orders into a single delivery, promoting efficient transportation and earning you Green Coins.
-
+   - ****Delayed Delivery:** Opt for longer delivery times, reducing rush deliveries and promoting sustainable logistics.
 ### 5. **Eco-Friendly Packaging:**
    - Choose minimal, eco-friendly packaging options, reducing waste and earning Green Coins and vouchers.
 
 ### 6. **Educational Resources:**
-   - Access educational content to enhance your understanding of eco-friendly choices and their impact on the environment.
+   - Access educational content to enhance your understanding of eco-friendly choices and their environmental impact.
 
 ## Tech Stack:
 
 - **Frontend:** Built using Next.js 13 App Router, React, and Tailwind CSS for a responsive and intuitive user interface.
 - **Backend:** Leveraging Prisma and MongoDB for flexible and scalable data management.
-- **Authentication:** NextAuth ensures secure and scalable user authentication.
-- **Infrastructure:** Integrated with Amazon's robust infrastructure for seamless scalability and reliability.
 
 ## Getting Started:
 
@@ -51,7 +49,7 @@ Welcome to AmazonGreen, the ultimate destination for eco-conscious consumers see
 
 ## Contributing:
 
-We welcome contributions from the community! If you have ideas for features, bug fixes, or improvements, please submit a pull request. For major changes, please open an issue first to discuss your proposal.
+We welcome contributions from the community! Please submit a pull request if you have ideas for features, bug fixes, or improvements. For major changes, please open an issue first to discuss your proposal.
 
 ## Feedback and Support:
 
