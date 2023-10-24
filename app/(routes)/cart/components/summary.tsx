@@ -9,6 +9,13 @@ import Currency from "@/components/ui/currency";
 import useCart from "@/hooks/use-cart";
 import { toast } from "react-hot-toast";
 import Image from "next/image";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
 // import { FaCheck } from 'react-icons/fa';
 import {
   TruckIcon,
@@ -26,8 +33,8 @@ const Summary = () => {
   const searchParams = useSearchParams();
   const items = useCart((state) => state.items);
   const removeAll = useCart((state) => state.removeAll);
-  const [selectedPackaging, setSelectedPackaging] = useState(null);
-  const [selectedDelivery, setSelectedDelivery] = useState(null);
+  const [selectedPackaging, setSelectedPackaging] = useState<string | null>(null);
+  const [selectedDelivery, setSelectedDelivery] = useState<string | null>(null);
   const [randomGreenPoints, setRandomGreenPoints] = useState(0);
   const [randomCarbonFootprintReduction, setRandomCarbonFootprintReduction] =
     useState(0);
@@ -43,16 +50,20 @@ const Summary = () => {
     if (searchParams.get("canceled")) {
       toast.error("Something went wrong.");
     }
-    if (selectedPackaging === "Green" || selectedPackaging === "Minimal" && (selectedDelivery === "Community" || selectedDelivery === "Delayed")) {
+    if (
+      selectedPackaging === "Green" ||
+      (selectedPackaging === "Minimal" &&
+        (selectedDelivery === "Community" || selectedDelivery === "EcoFlex"))
+    ) {
       setShowThankYou(true);
       const timer = setTimeout(() => {
         setShowThankYou(false);
       }, 3000);
       return () => clearTimeout(timer);
     }
-  }, [searchParams, removeAll ,selectedPackaging, selectedDelivery]);
+  }, [searchParams, removeAll, selectedPackaging, selectedDelivery]);
 
-  const onDeliveryOptionClick = (option) => {
+  const onDeliveryOptionClick = (option:string) => {
     if (selectedDelivery === option) {
       setSelectedDelivery(null);
     } else {
@@ -60,7 +71,7 @@ const Summary = () => {
       setRandomValues(deliveryOptionsInfo[option]);
     }
   };
-  const onPackageOptionClick = (option) => {
+  const onPackageOptionClick = (option:string) => {
     if (selectedPackaging === option) {
       setSelectedPackaging(null);
     } else {
@@ -68,22 +79,22 @@ const Summary = () => {
       setRandomValues(packagingOptionsInfo[option]);
     }
   };
+  type OptionInfo = {
+    greenPoints: number;
+    carbonFootprintReduction: number;
+    impactMessage: string;
+  };
   const getRandomValue = (baseValue: any) => {
     const randomFactor = 0.8 + Math.random() * 0.4;
     return Math.floor(baseValue * randomFactor);
   };
-  const setRandomValues = ({
-    greenPoints,
-    carbonFootprintReduction,
-    impactMessage,
-  }) => {
-    setRandomGreenPoints(getRandomValue(greenPoints));
-    setRandomCarbonFootprintReduction(getRandomValue(carbonFootprintReduction));
-    setImpactMessage(impactMessage);
+  const setRandomValues = (optionInfo: OptionInfo) => {
+    setRandomGreenPoints(getRandomValue(optionInfo.greenPoints));
+    setRandomCarbonFootprintReduction(getRandomValue(optionInfo.carbonFootprintReduction));
+    setImpactMessage(optionInfo.impactMessage);
   };
   const calculateDeliveryCharges = () => {
     let deliveryCharges = 0;
-
     if (selectedDelivery === "Prime") {
       deliveryCharges += 0.05 * totalPrice;
     }
@@ -91,10 +102,9 @@ const Summary = () => {
       deliveryCharges += 0.03 * totalPrice;
     } else if (selectedDelivery === "Community") {
       deliveryCharges -= 0.01 * totalPrice;
-    } else if (selectedDelivery === "Delayed") {
+    } else if (selectedDelivery === "EcoFlex") {
       deliveryCharges -= 0.02 * totalPrice;
     }
-
     return deliveryCharges;
   };
   const calculatePackagingCharges = () => {
@@ -108,7 +118,6 @@ const Summary = () => {
     } else if (selectedPackaging === "Minimal") {
       packagingCharges -= 0.02 * totalPrice;
     }
-
     return packagingCharges;
   };
 
@@ -124,7 +133,7 @@ const Summary = () => {
   //   Standard: { greenPoints: 0, carbonFootprintReduction: 0 },
   //   Prime: { greenPoints: 2, carbonFootprintReduction: 5 },
   //   Community: { greenPoints: 5, carbonFootprintReduction: 10 },
-  //   Delayed: { greenPoints: 8, carbonFootprintReduction: 15 },
+  //   EcoFlex: { greenPoints: 8, carbonFootprintReduction: 15 },
   //   Green: { greenPoints: 5, carbonFootprintReduction: 8 },
   //   Minimal: { greenPoints: 7, carbonFootprintReduction: 12 },
   // };
@@ -139,7 +148,8 @@ const Summary = () => {
 
     window.location = response.data.url;
   };
-  const packagingOptionsInfo = {
+
+  const packagingOptionsInfo: Record<string,OptionInfo> = {
     Standard: {
       greenPoints: 0,
       carbonFootprintReduction: 0,
@@ -160,7 +170,7 @@ const Summary = () => {
     },
   };
 
-  const deliveryOptionsInfo = {
+  const deliveryOptionsInfo: Record<string,OptionInfo> = {
     Standard: {
       greenPoints: 0,
       carbonFootprintReduction: 0,
@@ -178,21 +188,21 @@ const Summary = () => {
       carbonFootprintReduction: Math.floor(Math.random() * 5 + 1),
       impactMessage: "Community delivery contributes to a greener planet.",
     },
-    Delayed: {
+    EcoFlex: {
       greenPoints: Math.floor(Math.random() * 10 + 1),
       carbonFootprintReduction: Math.floor(Math.random() * 5 + 1),
       impactMessage:
-        "Choosing Delayed delivery reduces carbon footprint while earning green points.",
+        "Choosing EcoFlex delivery reduces carbon footprint while earning green points.",
     },
   };
 
   return (
     <div className="mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8">
-      {showThankYou && (
+      {/* {showThankYou && (
         <div className="absolute top-0 p-4  mt-2 mr-2 bg-green-500 text-white font-black rounded-lg shadow-lg">
           Thank you for trying to save the environment!
         </div>
-      )}
+      )} */}
       <h2 className="text-lg font-bold text-gray-900">Order summary</h2>
       <div className="mt-6 space-y-4">
         <h3 className="text-base font-medium text-gray-900 mb-2">
@@ -200,38 +210,55 @@ const Summary = () => {
         </h3>
         <div className="my-2 flex gap-x-2">
           <br />
-          {["Prime", "Standard", "Community", "Delayed"].map((option) => (
-            <div
-              key={option}
-              className={`p-3 flex items-center flex-col rounded-lg cursor-pointer ${
-                selectedDelivery === option ? "bg-blue-200" : "bg-gray-200"
-              }`}
-              onClick={() => onDeliveryOptionClick(option)}
-            >
-              {/* <div className="flex items-center gap-x-1"> */}
-
-              {option === "Prime" && (
-                <PackageCheckIcon size={30} strokeWidth={2} color="navy" />
-              )}
-              {option === "Standard" && (
-                <TruckIcon size={30} strokeWidth={2} color="gray" />
-              )}
-              {option === "Community" && (
-                <Boxes size={30} strokeWidth={2} color="green" />
-              )}
-              {option === "Delayed" && (
-                <PackageOpen size={30} strokeWidth={2} color="lime" />
-              )}
-              <span className="text-xs font-black text-gray-500 text-center">
-                {option}
-              </span>
-              {/* </div> */}
-
-              {selectedDelivery === option && (
-                <CheckCheck size={24} className="text-green-500" />
-              )}
-            </div>
-          ))}
+          <TooltipProvider>
+            {["Prime", "Standard", "Community", "EcoFlex"].map((option) => (
+              <Tooltip key={option}>
+                <TooltipTrigger asChild>
+                  <div
+                    className={`p-3 flex items-center flex-col rounded-lg cursor-pointer ${
+                      selectedDelivery === option
+                        ? "bg-blue-200"
+                        : "bg-gray-200"
+                    }`}
+                    onClick={() => onDeliveryOptionClick(option)}
+                  >
+                    {option === "Prime" && (
+                      <PackageCheckIcon
+                        size={30}
+                        strokeWidth={1}
+                        color="gray"
+                      />
+                    )}
+                    {option === "Standard" && (
+                      <TruckIcon size={30} strokeWidth={1} color="gray" />
+                    )}
+                    {option === "Community" && (
+                      <Boxes size={30} strokeWidth={1} color="gray" />
+                    )}
+                    {option === "EcoFlex" && (
+                      <PackageOpen size={30} strokeWidth={1} color="gray" />
+                    )}
+                    <span className="text-xs font-black text-gray-500 text-center">
+                      {option}
+                    </span>
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent className="bg-green-100 font-semibold p-2 rounded-lg opacity-80">
+                  <p>
+                    {option === "Prime"
+                      ? "Prime Delivery: Fast, expedited service for quick deliveries, prioritizing speed and efficiency."
+                      : option === "Standard"
+                      ? "Standard Delivery: Conventional delivery service with regular shipping times, offering a balance between speed and eco-conscious practices."
+                      : option === "Community"
+                      ? "Community Delivery: Centralized pick-up points reduce travel, earning users green coins."
+                      : option === "EcoFlex"
+                      ? "EcoFlex Delivery: Opt for longer delivery times, reducing rush deliveries, promoting sustainable logistics."
+                      : ""}
+                  </p>
+                </TooltipContent>
+              </Tooltip>
+            ))}
+          </TooltipProvider>
         </div>
       </div>
       <div>
@@ -239,33 +266,54 @@ const Summary = () => {
           Choose Packaging:{" "}
         </h3>
         <div className="my-2 flex gap-x-2">
-          {["Standard", "Green", "Minimal"].map((option) => (
-            <div
-              key={option}
-              className={`flex items-center flex-col justify-between p-3 rounded-lg cursor-pointer ${
-                selectedPackaging === option ? "bg-blue-200" : "bg-gray-200"
-              }`}
-              onClick={() => onPackageOptionClick(option)}
-            >
-              <div className="flex items-center gap-x-1">
-                {option === "Standard" && (
-                  <Package size={30} strokeWidth={2} color="gray" />
-                )}
-                {option === "Green" && (
-                  <Leaf size={30} strokeWidth={2} color="green" />
-                )}
-                {option === "Minimal" && (
-                  <PackageOpen size={30} strokeWidth={2} color="black" />
-                )}
-                <span className="text-xs font-black text-gray-500 text-center">
-                  {option}
-                </span>
-              </div>
-              {selectedPackaging === option && (
-                <CheckCheck size={20} className="text-green-500 mt-2 mr-2" />
-              )}
-            </div>
-          ))}
+          <TooltipProvider>
+            {["Standard", "Green", "Minimal"].map((option) => (
+              <Tooltip key={option}>
+                <TooltipTrigger asChild>
+                  <div
+                    className={`flex items-center flex-col justify-between p-3 rounded-lg cursor-pointer ${
+                      selectedPackaging === option
+                        ? "bg-blue-200"
+                        : "bg-gray-200"
+                    }`}
+                    onClick={() => onPackageOptionClick(option)}
+                  >
+                    <div className="flex items-center gap-x-1">
+                      {option === "Standard" && (
+                        <Package size={30} strokeWidth={1} color="gray" />
+                      )}
+                      {option === "Green" && (
+                        <Leaf size={30} strokeWidth={1} color="gray" />
+                      )}
+                      {option === "Minimal" && (
+                        <ShieldCheck size={30} strokeWidth={1} color="gray" />
+                      )}
+                      <span className="text-xs font-black text-gray-500 text-center">
+                        {option}
+                      </span>
+                    </div>
+                    {selectedPackaging === option && (
+                      <CheckCheck
+                        size={20}
+                        className="text-green-500 mt-2 mr-2"
+                      />
+                    )}
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent className="bg-green-100 font-semibold p-2 rounded-lg opacity-80">
+                  <p>
+                    {option === "Standard"
+                      ? "Standard Packaging: Regular packaging methods for safe delivery without additional environmental considerations."
+                      : option === "Green"
+                      ? "Green Packaging: Minimal eco-packaging, green coins, and vouchers as rewards."
+                      : option === "Minimal"
+                      ? "Minimal Packaging: Eco-friendly, minimal packaging to reduce waste and environmental impact during delivery."
+                      : ""}
+                  </p>
+                </TooltipContent>
+              </Tooltip>
+            ))}
+          </TooltipProvider>
         </div>
       </div>
       {selectedPackaging && selectedDelivery && (
@@ -292,7 +340,7 @@ const Summary = () => {
                 <span className="text-green-600">
                   <Leaf size={24} className="mr-2" />
                 </span>
-                Green Points Earned:{" "}
+                Green Coins Earned:{" "}
                 <span className="font-bold">{randomGreenPoints}</span>{" "}
                 <span>
                   {" "}
@@ -320,7 +368,7 @@ const Summary = () => {
 
       <div className="mt-6 space-y-4">
         <div className="border-t border-gray-200 pt-4">
-          <div className="text-base font-medium text-gray-900">
+          <div className="text-base font-bold text-green-600 hover:underline hover:text-green-400">
             Order Breakdown
           </div>
           <div className="text-base text-gray-900 space-y-2">
@@ -358,9 +406,9 @@ const Summary = () => {
           </div>
         )}
         <div className="flex justify-between items-center">
-              <span className="font-bold">Total :</span>
-              <Currency value={finalTotal} />
-            </div>
+          <span className="font-bold">Total :</span>
+          <Currency value={finalTotal} />
+        </div>
         <Button
           onClick={onCheckout}
           disabled={items.length === 0}
