@@ -16,7 +16,7 @@ Welcome to AmazonGreen, the ultimate destination for eco-conscious consumers see
 ### 4. **Green Delivery Options:**
    - **Community Delivery:** Opt for scheduled community deliveries, minimizing individual trips and reducing carbon emissions.
    - **Clubbed Delivery:** Combine multiple orders into a single delivery, promoting efficient transportation and earning you Green Coins.
-   - ****Delayed Delivery:** Opt for longer delivery times, reducing rush deliveries and promoting sustainable logistics.
+   - **Delayed Delivery:** Opt for longer delivery times, reducing rush deliveries and promoting sustainable logistics.
 ### 5. **Eco-Friendly Packaging:**
    - Choose minimal, eco-friendly packaging options, reducing waste and earning Green Coins and vouchers.
 
