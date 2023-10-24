@@ -1,7 +1,7 @@
 # AmazonGreen: Your Eco-Friendly Shopping Solution 
 
 ### [AmazonGreen Store](https://amazon-green-store.vercel.app) : Try it out
-### [Admin Dashborad](https://amazon-green-one.vercel.app) : for managing the AmazonGreen Store [Github](https://github.com/olivemonk/amazon-green) 
+### [Admin Dashborad](https://amazon-green-one.vercel.app) : for managing the AmazonGreen Store <a href="https://github.com/olivemonk/amazon-green" target="_blank">Github</a>
 
 Welcome to AmazonGreen, the ultimate destination for eco-conscious consumers seeking a sustainable shopping experience. AmazonGreen is an integrated marketplace within the Amazon store, exclusively designed for eco-friendly products, packaged and delivered in the most environmentally responsible ways. This platform combines cutting-edge technologies and a user-centric approach to offer a seamless, trustworthy, and rewarding shopping experience.
 
