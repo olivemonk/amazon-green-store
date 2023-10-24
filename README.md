@@ -1,70 +1,58 @@
-# Full Stack E-Commerce + Dashboard & CMS: Next.js 13 App Router, React, Tailwind, Prisma, MySQL, 2023
+# AmazonGreen: Your Eco-Friendly Shopping Solution
 
-![Copy of Copy of Fullstack Twitter Clone (1)](https://github.com/AntonioErdeljac/next13-ecommerce-admin/assets/23248726/088760cb-837d-44b7-a959-63089385d0a0)
+Welcome to AmazonGreen, the ultimate destination for eco-conscious consumers seeking a sustainable shopping experience. AmazonGreen is an integrated marketplace within the Amazon store, exclusively designed for eco-friendly products, packaged and delivered in the most environmentally responsible ways. This platform combines cutting-edge technologies and a user-centric approach to offer a seamless, trustworthy, and rewarding shopping experience.
 
+## Features:
 
-For DEMO, use [Stripe Testing Cards](https://stripe.com/docs/testing)
+### 1. **Dedicated Eco-Friendly Marketplace:**
+   - Access a wide array of eco-friendly products, carefully curated to align with your sustainable lifestyle choices.
 
-This is a repository for a Full Stack E-Commerce + Dashboard & CMS: Next.js 13 App Router, React, Tailwind, Prisma, MySQL
+### 2. **Transparent Product Information:**
+   - Detailed product pages provide essential information, including eco-friendly certifications, return ratios, carbon footprint, and seller sustainability scores.
 
-## MAKE SURE YOU HAVE [ADMIN](https://github.com/AntonioErdeljac/next13-ecommerce-admin/tree/master) SETUP FIRST!
+### 3. **Innovative Incentive System:**
+   - **Green Coins:** Earn Green Coins by choosing eco-friendly delivery, green packaging, and products with low return ratios. These coins are redeemable for vouchers and discounts, rewarding your commitment to a greener planet.
 
-[VIDEO TUTORIAL](https://youtu.be/5miHyP6lExg)
+### 4. **Green Delivery Options:**
+   - **Community Delivery:** Opt for scheduled community deliveries, minimizing individual trips and reducing carbon emissions.
+   - **Clubbed Delivery:** Combine multiple orders into a single delivery, promoting efficient transportation and earning you Green Coins.
+   - **Delayed Delivery:** Opt for longer delivery times, reducing rush deliveries and promoting sustainable logistics.
+### 5. **Eco-Friendly Packaging:**
+   - Choose minimal, eco-friendly packaging options, reducing waste and earning Green Coins and vouchers.
 
-Key Features:
+### 6. **Educational Resources:**
+   - Access educational content to enhance your understanding of eco-friendly choices and their environmental impact.
 
-- We will be using Shadcn UI for the Admin!
-- Our admin dashboard is going to serve as both CMS, Admin and API!
-- You will be able to control mulitple vendors / stores through this single CMS! (For example you can have a "Shoe store" and a "Laptop store" and a "Suit store", and our CMS will generate API routes for all of those individually!)
-- You will be able to create, update and delete categories!
-- You will be able to create, update and delete products!
-- You will be able to upload multiple images for products, and change them whenever you want!
-- You will be able to create, update and delete filters such as "Color" and "Size", and then match them in the "Product" creation form.
-- You will be able to create, update and delete "Billboards" which are these big texts on top of the page. You will be able to attach them to a single category, or use them standalone (Our Admin generates API for all of those cases!)
-- You will be able to Search through all categories, products, sizes, colors, billboards with included pagination!
-- You will be able to control which products are "featured" so they show on the homepage!
-- You will be able to see your orders, sales, etc.
-- You will be able to see graphs of your revenue etc.
-- You will learn Clerk Authentication!
-- Order creation
-- Stripe checkout
-- Stripe webhooks
-- MySQL + Prisma + PlanetScale
+## Tech Stack:
 
-### Prerequisites
+- **Frontend:** Built using Next.js 13 App Router, React, and Tailwind CSS for a responsive and intuitive user interface.
+- **Backend:** Leveraging Prisma and MongoDB for flexible and scalable data management.
 
-**Node version 14.x**
+## Getting Started:
 
-### Cloning the repository
+1. **Clone the Repository:**
+   ```
+   git clone <repository-url>
+   cd AmazonGreen
+   ```
 
-```shell
-git clone https://github.com/AntonioErdeljac/next13-ecommerce-store.git
-```
+2. **Install Dependencies:**
+   ```
+   npm install
+   ```
 
-### Install packages
+3. **Run the Development Server:**
+   ```
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) to view the app in your browser.
 
-```shell
-npm i
-```
+## Contributing:
 
-### Setup .env file
+We welcome contributions from the community! Please submit a pull request if you have ideas for features, bug fixes, or improvements. For major changes, please open an issue first to discuss your proposal.
 
+## Feedback and Support:
 
-```js
-NEXT_PUBLIC_API_URL=
-```
+For feedback, issues, or queries, please [open an issue](https://github.com/amazongreen/amazongreen/issues). We appreciate your valuable input as we work towards creating a greener future together.
 
-
-### Start the app
-
-```shell
-npm run dev
-```
-
-## Available commands
-
-Running commands with npm `npm run [command]`
-
-| command         | description                              |
-| :-------------- | :--------------------------------------- |
-| `dev`           | Starts a development instance of the app |
+Thank you for choosing AmazonGreen for your eco-friendly shopping needs! Happy shopping and saving the planet, one purchase at a time! 🌱🛒
