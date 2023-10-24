@@ -1,6 +1,6 @@
 # AmazonGreen: Your Eco-Friendly Shopping Solution 
 
-### [https://amazon-green-store.vercel.app/](AmazonGreen Store) : Try it out
+### [AmazonGreen Store](https://amazon-green-store.vercel.app) : Try it out
 
 Welcome to AmazonGreen, the ultimate destination for eco-conscious consumers seeking a sustainable shopping experience. AmazonGreen is an integrated marketplace within the Amazon store, exclusively designed for eco-friendly products, packaged and delivered in the most environmentally responsible ways. This platform combines cutting-edge technologies and a user-centric approach to offer a seamless, trustworthy, and rewarding shopping experience.
 
