@@ -57,6 +57,12 @@ Welcome to AmazonGreen, the ultimate destination for eco-conscious consumers see
 We welcome contributions from the community! Please submit a pull request if you have ideas for features, bug fixes, or improvements. For major changes, please open an issue first to discuss your proposal.
 [PPT link](https://docs.google.com/presentation/d/1yxq4BpbTNgJxloAdM1iZ3_kf8rCaA8TGbWU7FU6G0N8/edit?usp=sharing)
 
+## Contributors:
+ ### Team JalJeera
+<a href="https://github.com/olivemonk/amazon-green-store/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=olivemonk/amazon-green-store" />
+</a>
+
 ## Feedback and Support:
 
 For feedback, issues, or queries, please [open an issue](https://github.com/amazongreen/amazongreen/issues). We appreciate your valuable input as we work towards creating a greener future together.
